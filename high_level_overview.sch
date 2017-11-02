@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:high_level_overview-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -983,32 +984,28 @@ $EndSheet
 Text Notes 6050 3650 0    60   ~ 0
 Control signals:\n* motor speed PWM
 Wire Wire Line
-	9250 1350 7300 1350
+	9250 1350 6000 1350
 Wire Wire Line
-	7300 1350 7300 4450
+	9250 1400 7700 1400
 Wire Wire Line
-	7300 4450 7300 4550
+	7700 1400 7700 4450
 Wire Wire Line
-	9250 1400 8050 1400
+	7700 4450 7700 5250
 Wire Wire Line
-	8050 1400 8050 4450
-Wire Wire Line
-	8050 4450 8050 5250
-Wire Wire Line
-	8050 5250 8050 6100
-Text Notes 7350 4500 0    60   ~ 0
+	7700 5250 7700 6100
+Text Notes 6500 4500 0    60   ~ 0
 Diode 1N4006
-Text Notes 6400 4650 0    60   ~ 0
+Text Notes 6050 4650 0    60   ~ 0
 3 * IRFB3207 MOSFET 75A@48V
-Text Notes 6750 5150 0    60   ~ 0
+Text Notes 6500 5150 0    60   ~ 0
 3 * 20 Ohm
-Text Notes 6850 5600 0    60   ~ 0
+Text Notes 6600 5600 0    60   ~ 0
 5 Ohm
-Text Notes 7050 5300 0    60   ~ 0
+Text Notes 6800 5300 0    60   ~ 0
 20 KOhm to Ground
-Text Notes 6450 6050 0    60   ~ 0
+Text Notes 6200 6050 0    60   ~ 0
 Optocoupler Avago HCPL-3120
-Text Notes 6400 6400 0    60   ~ 0
+Text Notes 6150 6400 0    60   ~ 0
 LED current limiting resistance
 $Sheet
 S 4450 7350 2000 200 
@@ -1017,31 +1014,30 @@ F0 "network" 60
 F1 "electronics/network.sch" 60
 $EndSheet
 Wire Wire Line
-	6550 7400 6450 7400
+	6750 7400 6450 7400
 Wire Wire Line
-	6550 6500 6550 7400
+	6750 6500 6750 7400
 Wire Wire Line
-	6550 6500 7000 6500
-Text GLabel 8050 6100 3    60   Input ~ 0
+	6750 6500 6750 6500
+Text GLabel 7700 6100 3    60   Input ~ 0
 GND
-Text Notes 5750 7200 0    60   ~ 0
-GPIO HIGH|LOW
+Text Notes 6300 7300 0    60   ~ 0
+GPIO PWM
 Wire Wire Line
-	7000 4750 7000 5000
+	6750 4750 6750 5000
 Wire Wire Line
-	7000 5250 7000 5450
+	6750 5250 6750 5450
 Wire Wire Line
-	7000 5650 7000 5850
+	6750 5650 6750 5850
 Wire Wire Line
-	7000 6100 7000 6250
-Text GLabel 6750 4500 1    60   Input ~ 0
+	6750 6100 6750 6250
+Text GLabel 6000 4450 0    60   Input ~ 0
 12V
-Connection ~ 8050 5250
-Text Notes 7050 6800 0    60   ~ 0
+Connection ~ 7700 5250
+Text Notes 6800 6800 0    60   ~ 0
 python3 -c 'import math\nprint((3.3-1.5)/.01)  # Vsig - Vled,forward / Iled,forward\n'\n179.9999999999999
-Connection ~ 8050 4450
-Connection ~ 7300 4450
-Connection ~ 7000 5450
+Connection ~ 7700 4450
+Connection ~ 6750 5450
 Text Notes 1150 1400 0    60   ~ 0
 Poti
 Wire Wire Line
@@ -1052,4 +1048,9 @@ Text GLabel 1200 1450 3    60   Input ~ 0
 GND
 Text GLabel 1200 1250 1    60   Input ~ 0
 3V3
+Connection ~ 6000 4450
+Wire Wire Line
+	6000 1350 6000 4450
+Entry Wire Line
+	-700 -3400 -600 -3300
 $EndSCHEMATC
